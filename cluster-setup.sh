@@ -1,13 +1,14 @@
 #!/bin/bash
 
 kubedb=1
-kubestash=1
+kubestash=0
 stash=0
-longhorn=1
-metrics=1
-prom=1
-panopticon=1
-metricsapi=1
+longhorn=0
+metrics=0
+prom=0
+panopticon=0
+metricsapi=0
+cert=0
 
 #kubedb
 if [ $kubedb -eq 1 ]; then
@@ -36,7 +37,7 @@ helm upgrade -i stash oci://ghcr.io/appscode-charts/stash \
   --version v2025.2.10 \
   --namespace stash --create-namespace \
   --set features.enterprise=true \
-  --set-file global.license=$HOME/Downloads/kubedb-license-b36d84ff-b7ab-4e83-92a1-dd0aa93779a5.txt \
+  --set-file global.license=license.txt \
   --wait --burst-limit=10000 --debug
 fi
 
@@ -71,11 +72,14 @@ helm upgrade -i panopticon appscode/panopticon -n kubeops --create-namespace --v
    --set-file license=license.txt
 fi
 
+#metrics api
 if [ $metricsapi -eq 1 ]; then
   kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 fi
 
-
+if [ $cert -eq 1 ]; then
+  kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.yaml
+fi
 
 
 
