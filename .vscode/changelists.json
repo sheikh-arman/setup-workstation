@@ -1,0 +1,11 @@
+{
+  "changelists": [
+    {
+      "name": "Default",
+      "files": [
+        "git.bash"
+      ]
+    }
+  ],
+  "active": "Default"
+}

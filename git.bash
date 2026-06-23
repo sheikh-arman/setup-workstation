@@ -5,7 +5,7 @@
     You can get a PAT from github -> settings -> developer settings -> Create Personal access token
 '
 
-git config --global user.name "Arnob kumar saha"
+git config --global user.name "SK Ali Arman"
 git config --global user.email arnob@appscode.com
 
 ssh-keygen -t rsa -C "arnob@appscode.com"

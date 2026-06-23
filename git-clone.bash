@@ -6,6 +6,9 @@ mkdir -p $HOME/go/src/kubeops.dev
 base_dir="$HOME/go/src/kubedb.dev"
 kubedbRepo=("apimachinery" "provisioner" "webhook-server" "installer" "crd-manager" "mysql" "mysql-init-docker" "mysql-coordinator" "mysql-restic-plugin" "mysql-archiver"  "mysql-csi-snapshotter-plugin" "mariadb" "mariadb-init-docker" "mariadb-coordinator" "mariadb-archiver" "mariadb-csi-snapshotter-plugin" "mariadb-restic-plugin" "clickhouse" "clickhouse-init-docker")
 
+# restic backup plugins for KubeDB databases (kubedb org)
+kubedbRepo+=("dashboard-restic-plugin" "elasticsearch-restic-plugin" "hanadb-restic-plugin" "mongodb-restic-plugin" "postgres-restic-plugin" "qdrant-restic-plugin" "redis-restic-plugin" "singlestore-restic-plugin" "xtrabackup-restic-plugin" "zookeeper-restic-plugin")
+
 # Loop through each repository
 for repo in "${kubedbRepo[@]}"; do
   echo "processing $repo"
