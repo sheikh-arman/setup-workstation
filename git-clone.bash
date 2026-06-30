@@ -9,6 +9,9 @@ kubedbRepo=("apimachinery" "provisioner" "webhook-server" "installer" "crd-manag
 # restic backup plugins for KubeDB databases (kubedb org)
 kubedbRepo+=("dashboard-restic-plugin" "elasticsearch-restic-plugin" "hanadb-restic-plugin" "mongodb-restic-plugin" "postgres-restic-plugin" "qdrant-restic-plugin" "redis-restic-plugin" "singlestore-restic-plugin" "xtrabackup-restic-plugin" "zookeeper-restic-plugin")
 
+# KubeDB database operators (32 total; clickhouse, mariadb, mysql already listed above)
+kubedbRepo+=("aerospike" "cassandra" "db2" "documentdb" "druid" "elasticsearch" "hanadb" "hazelcast" "ignite" "kafka" "mssqlserver" "memcached" "milvus" "mongodb" "neo4j" "oracle" "percona-xtradb" "pgbouncer" "pgpool" "postgres" "proxysql" "qdrant" "rabbitmq" "redis" "redis-sentinel" "singlestore" "solr" "weaviate" "zookeeper")
+
 # Loop through each repository
 for repo in "${kubedbRepo[@]}"; do
   echo "processing $repo"
